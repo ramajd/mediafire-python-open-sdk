@@ -322,7 +322,7 @@ class MediaFireUploader(object):
             if int(doupload['result']) != 0:
                 break
 
-            if doupload['fileerror'] != '':
+            if hasattr(doupload, 'fileerror') and doupload['fileerror'] != '':
                 # TODO: we may have to handle this a bit more dramatically
                 logger.warning("poll(%s): fileerror=%d", upload_key,
                                int(doupload['fileerror']))
